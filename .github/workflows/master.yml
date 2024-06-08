@@ -12,13 +12,18 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v4
     
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ftp.us.stackcp.com
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
+      - name: 📂 Sync files to first directory
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.us.stackcp.com
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /avenueboutiquehtx_com/under_construction/
 
-        server-dir: |
-          /avenueboutiquehtx_com/under_construction/
-          /public_html/test/
+      - name: 📂 Sync files to second directory
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.us.stackcp.com
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /public_html/test/
