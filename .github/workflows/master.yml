@@ -4,6 +4,7 @@ on:
       - main
       
 name: 🚀 Deploy website on push
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -19,6 +20,9 @@ jobs:
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
         server-dir: /avenueboutiquehtx_com/under_construction/
+
+    - name: 💤 Wait for a few seconds
+      run: sleep 10
 
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
