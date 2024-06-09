@@ -4,7 +4,6 @@ on:
       - main
       
 name: 🚀 Deploy website on push
-
 jobs:
   web-deploy:
     name: 🎉 Deploy
